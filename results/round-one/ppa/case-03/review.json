@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Source commit bump (0000000000000000000000000000000000000006 → 0000000000000000000000000000000000000007) drops the 'build-marker' part present in prior recipe. Per §3, removal requires PR-author confirmation. Upstream commit message documents intent ('Intentionally remove the unused build-marker part'), but PR description contains no explicit author ratification. Evidence notes the part is nil with no filesystem or service execution impact. Confirm in PR that removal is intentional, or restore the part.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 27
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 26
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Commit bump to proposed recipe; 'build-marker' nil part removed per upstream intent but without PR-author confirmation. No promoted tracks, base change, or documentation edit. Functional impact is benign; policy compliance requires explicit removal confirmation before release."
+}

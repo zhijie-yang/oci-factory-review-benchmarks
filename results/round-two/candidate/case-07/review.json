@@ -1,0 +1,55 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The runtime-libraries part removes the libgomp1_libs slice, which supplies libgomp.so.1 required by the demo service's --engine parallel option. Evidence confirms the library is not available from any other source (base, remaining slices, deb closures, or other parts), causing the service startup to fail immediately with an unresolved library error. Restore libgomp1_libs or provide an equivalent source for libgomp.so.1.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 27
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 31
+        },
+        {
+          "path": "evidence.md",
+          "line": 8
+        },
+        {
+          "path": "evidence.md",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "category": "eol-cap",
+      "severity": "nit",
+      "message": "No support plan is documented in CODEOWNERS for the track EOL date (2026-12-01). Per §2 guidance, upstream-sourced applications require documented support plans when EOL exceeds today + 3 months. The EOL is approximately 1.5 months away, within the cap but approaching the boundary. Consider documenting maintenance expectations in the PR or CODEOWNERS (advisory, not blocking).",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        },
+        {
+          "path": "context.md",
+          "line": 12
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Source bump (commit 000000000e → 000000000f) removes libgomp1_libs slice from runtime-libraries part. This slice provided libgomp.so.1, which is required by the demo service command (--engine parallel). Evidence confirms no alternate source supplies this library, causing runtime failure."
+}

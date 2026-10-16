@@ -1,0 +1,16 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "parts"
+  ],
+  "summary": "Source bump (commit 000000000a → 000000000b) removes build-marker nil part; author confirms intentional removal with no functional impact. All locally-checkable gates pass."
+}

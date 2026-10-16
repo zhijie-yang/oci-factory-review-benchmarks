@@ -1,0 +1,17 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version",
+    "scripts"
+  ],
+  "summary": "Proposed revision updates trigger commit to recipe containing internal shell-variable refactor in metadata part override-build; functionally equivalent behavior confirmed by evidence; no parts, services, repositories or documented configuration changed."
+}

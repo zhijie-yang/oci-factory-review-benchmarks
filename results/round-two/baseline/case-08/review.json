@@ -1,0 +1,26 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Recipe regression: /opt/demo ownership change breaks the configured runtime. The runtime-config part changes /opt/demo from 584792:584792 mode 0750 to 0:0 mode 0700. The app runs as _daemon_ (UID 584792) per the run-user field, but root-owned (0:0), owner-only-writable (0700) directory denies the daemon user write access to its own config directory. The evidence states the runtime has no DAC override, root helper or identity-changing step, and the configured app must open this file before listening with no fallback. This breaks runtime behavior. Confirm in the PR that this removal of daemon write access is intentional, or restore the prior ownership and mode.",
+      "evidence": [
+        {"path": "recipes/after/rockcraft.yaml", "line": 30},
+        {"path": "recipes/after/rockcraft.yaml", "line": 33},
+        {"path": "evidence.md", "line": 9},
+        {"path": "evidence.md", "line": 14}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": ["scripts"],
+  "summary": "Trigger commit bumped 0000000000000000000000000000000000000010 → 0000000000000000000000000000000000000011. Recipe runtime-config part changed: /opt/demo directory ownership shifted from daemon user (584792:584792, mode 0750) to root (0:0, mode 0700), removing the configured app's write access to its config directory. No other parts, services, packages, version or repositories changed."
+}

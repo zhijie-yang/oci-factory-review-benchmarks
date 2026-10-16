@@ -1,0 +1,16 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "not-assessed",
+    "recipe-regression": "not-assessed",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "not-assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Commit bump 0000000000000000000000000000018 → 0000000000000000000000000000019 on established 1.2-24.04/edge track. Locally-checkable trigger policies pass; recipe snapshots unavailable for regression assessment."
+}

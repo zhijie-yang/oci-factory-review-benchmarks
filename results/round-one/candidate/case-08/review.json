@@ -1,0 +1,30 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Configuration directory ownership and mode prevent daemon service startup. Directory changed from 584792:584792 mode 0750 to 0:0 mode 0700. Service runs as _daemon_ (UID 584792) but has no read/execute permission on /opt/demo. Service must open /opt/demo/server.conf before listening with no fallback. Restore daemon ownership and 0750 mode, or provide explicit confirmation that this breaking change is intentional.",
+      "evidence": [
+        {"path": "changes.diff", "line": 8},
+        {"path": "recipes/after/rockcraft.yaml", "line": 30},
+        {"path": "recipes/after/rockcraft.yaml", "line": 33},
+        {"path": "evidence.md", "line": 7},
+        {"path": "evidence.md", "line": 12},
+        {"path": "evidence.md", "line": 14}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "scripts"
+  ],
+  "summary": "Source commit bumped 0000...0010 → 0000...0011. Recipe runtime-config part's override-build script changed: /opt/demo directory permission 0750 → 0700, ownership 584792:584792 → 0:0 (root). Service runs as daemon UID 584792; no fallback provided for config file access."
+}

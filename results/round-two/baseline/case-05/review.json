@@ -1,0 +1,16 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "parts"
+  ],
+  "summary": "Commit bump in upload[0] with intentional removal of build-marker nil part. Deb security manifest retained. All locally-checkable gates pass."
+}

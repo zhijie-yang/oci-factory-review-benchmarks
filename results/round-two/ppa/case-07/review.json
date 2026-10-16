@@ -1,0 +1,44 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The proposed revision removes libgomp1_libs from runtime-libraries stage-packages, but the service command still uses --engine parallel which requires libgomp.so.1. The supplied evidence confirms libgomp1_libs is the sole source of this library in the rootfs. Removal will cause startup failure with an unresolved library error. Restore libgomp1_libs or confirm intentional removal with evidence of an alternative mechanism.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 30
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 14
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 29
+        },
+        {
+          "path": "evidence.md",
+          "line": 7
+        },
+        {
+          "path": "evidence.md",
+          "line": 14
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Source bump from commit 000000000000000000000000000000000000000e to 000000000000000000000000000000000000000f in canonical/demo-rock. Recipe removes libgomp1_libs package slice, a mandatory runtime dependency for the configured service engine."
+}

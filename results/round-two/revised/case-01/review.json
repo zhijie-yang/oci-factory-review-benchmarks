@@ -1,0 +1,28 @@
+{
+  "verdict": "Comment",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "other",
+      "severity": "nit",
+      "message": "Additional package repository declared via PPA canonical-demo/stable. Please clarify which shipped packages, if any, are sourced from this repository. The declaration alone does not establish provenance.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 27
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "repositories"
+  ],
+  "summary": "Trigger commit updated to 0000000000000000000000000000000000000003; EOL extended from 2026-12-01 to 2027-04-16. Recipe adds package-repositories PPA entry; no changes to parts, services, or stage-packages."
+}

@@ -1,0 +1,51 @@
+# Local review context
+
+This is a wholly synthetic, offline local review, frozen at 2026-10-16.
+All names, Git objects, discussions and evidence are fixture assumptions,
+not assertions about real Canonical projects or Ubuntu archive contents.
+No builds, runtime tests, vulnerability scans or network requests were run.
+Review only the supplied material; do not resolve references over the network.
+
+The image demo is already onboarded. The established SemVer track is
+1.2-24.04 on Ubuntu 24.04; only its edge risk is targeted. The version
+stays within 1.2.x. There are no other track, base or release changes.
+There is no accepted support plan or human CODEOWNERS approval of one.
+No CVE entries, ignored-vulnerabilities fields or .trivyignore files are
+added, removed or modified. Documentation and contacts are unchanged.
+
+## Frozen source index
+
+The source repository for both trigger revisions is canonical/demo-rock.
+The following exact repository/commit/path keys identify local snapshots;
+the snapshots are the complete recipe text, not excerpts.
+
+| Revision | Commit | Repository path | Local snapshot |
+| --- | --- | --- | --- |
+| Prior | 0000000000000000000000000000000000000016 | rocks/demo/rockcraft.yaml | recipes/before/rockcraft.yaml |
+| Proposed | 0000000000000000000000000000000000000017 | rocks/demo/rockcraft.yaml | recipes/after/rockcraft.yaml |
+
+oci/demo/image.yaml is the proposed trigger. changes.diff is the full
+prior-to-proposed trigger diff. The source-index keys, not the synthetic
+hash spelling, determine which snapshot is selected.
+
+## Package and source conventions
+
+Unless a recipe's app part has its own source, the main application is
+the fictional Ubuntu archive deb demo-app, version 1.2.0, staged by name.
+It is not compiled from the trigger repository. The trigger repository
+hosts recipes; its organization alone does not identify package provenance.
+demo-app and its package/slice metadata are supplied assumptions for this
+exercise, not packages to download. Other package names use Ubuntu naming.
+No unlisted recipe files, overrides or vulnerability exceptions are implied.
+All declared package and slice names resolve in the synthetic package index.
+The security-manifest source is an auxiliary build tool, not the main app.
+
+## Supplied discussion
+
+The PR updates only the recipe version and the main app's source-tag to 1.2.1.
+Here the app is built directly from canonical/demo-rock. In the frozen source
+index v1.2.0 maps to 1111111111111111111111111111111111111111 and v1.2.1
+maps to 2222222222222222222222222222222222222222. These application refs
+are separate from the trigger commits selecting the supplied recipe snapshots.
+Both tags have a Makefile honoring DESTDIR and installing demo under /usr/bin.
+There is no request to extend the trigger's existing 2026-12-01 EOL.

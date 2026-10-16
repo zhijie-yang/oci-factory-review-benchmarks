@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "other",
+      "severity": "blocker",
+      "message": "Recipe snapshots missing. The frozen index references canonical/demo-rock commit 0000000000000000000000000000019 at rocks/demo/rockcraft.yaml (proposed) and prior commit 0000000000000000000000000000018, but recipes/after/rockcraft.yaml and recipes/before/rockcraft.yaml are not supplied. Without both snapshots, deb-manifest and recipe-regression gates cannot be assessed.",
+      "evidence": [
+        {
+          "path": "context.md",
+          "line": 23
+        },
+        {
+          "path": "context.md",
+          "line": 45
+        },
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 4
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "not-assessed",
+    "recipe-regression": "not-assessed",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "not-assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Source commit bump on existing 1.2-24.04 track. Static checks (EOL cap, track naming, edge-first) pass, but mandatory recipe-regression and deb-manifest gates cannot be verified without supplied snapshots."
+}

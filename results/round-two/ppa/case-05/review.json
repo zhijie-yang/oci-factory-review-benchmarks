@@ -1,0 +1,26 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "End-of-life date 2026-12-01 is approximately 1.5 months from review date (2026-10-16), within the 3-month cap but without an accepted human support plan in CODEOWNERS. Per §2 Release policy, upstream-sourced rocks require a support plan for EOL dates beyond today + 3 months. No such plan is documented. Request a support plan or adjust the end-of-life date.",
+      "evidence": [
+        {"path": "oci/demo/image.yaml", "line": 8},
+        {"path": "context.md", "line": 12}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Source bump from commit 000000000000000000000000000000000a to 000000000000000000000000000000000b with intentional removal of build-marker nil part. Recipe regression gate passes; deb-manifest gate passes. EOL cap gate fails due to lack of documented support plan."
+}

@@ -1,0 +1,37 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Removal of libgomp1_libs slice from runtime-libraries stage-packages causes recipe regression. Evidence establishes that demo-app's --engine parallel option requires libgomp.so.1, which this slice alone supplies in the prior rootfs. Removing it will cause /usr/bin/demo serve --engine parallel to fail at startup with an unresolved library error. Restore the slice or confirm service configuration has changed.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 30
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 31
+        },
+        {
+          "path": "evidence.md",
+          "line": 7
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages",
+    "version"
+  ],
+  "summary": "Commit bump from 000000000000000000000000000000000000000e to 000000000000000000000000000000000000000f removes libgomp1_libs slice from runtime-libraries stage-packages, causing runtime library regression for demo-app parallel engine startup."
+}

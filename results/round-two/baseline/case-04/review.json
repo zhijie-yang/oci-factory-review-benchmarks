@@ -1,0 +1,32 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The proposed recipe removes the demo-info service that exists in the prior recipe. Per §3, when a source bump drops a services: entry the previous recipe had, request changes until the removal is restored or the author confirms in the PR that the removal is intentional. An upstream commit message is not that confirmation.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 16
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 16
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "services"
+  ],
+  "summary": "The image.yaml diff changes only the recipe directory from rocks/old to rocks/new at the same commit. Recipe comparison reveals the proposed rockcraft.yaml removes the demo-info disabled service; the demo service and deb-security-manifest part remain unchanged. No CVE, vulnerability exception, documentation, or release-policy changes are present."
+}

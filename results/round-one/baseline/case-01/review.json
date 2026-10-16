@@ -1,0 +1,40 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "EOL extension to 2027-04-16 exceeds the 3-month cap (today + 3 months = 2027-01-16). An accepted support plan must be recorded in CODEOWNERS before this extension can be approved.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "category": "other",
+      "severity": "nit",
+      "message": "PPA declaration added (canonical-demo/stable) without rationale or package impact documentation. Prior revision sourced from Ubuntu archive; proposed revision introduces PPA. No apt candidate/origin report supplied to verify package selection changes.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 27
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version",
+    "repositories"
+  ],
+  "summary": "Commit 0000...0002 → 0000...0003; end-of-life 2026-12-01 → 2027-04-16; PPA canonical-demo/stable added. EOL extension lacks required support plan approval."
+}

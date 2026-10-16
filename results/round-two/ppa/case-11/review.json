@@ -1,0 +1,16 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Application patch-version update (1.2.0 → 1.2.1) with aligned recipe version and source-tag; no parts, services, or dependencies modified; deb-security-manifest present and correctly configured; EOL 2026-12-01 within 3-month cap; no recipe regression."
+}

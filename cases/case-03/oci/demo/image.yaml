@@ -1,0 +1,10 @@
+version: 2
+upload:
+  - source: canonical/demo-rock
+    commit: '0000000000000000000000000000000000000007'
+    directory: rocks/demo
+    release:
+      1.2-24.04:
+        end-of-life: '2026-12-01'
+        risks:
+          - edge

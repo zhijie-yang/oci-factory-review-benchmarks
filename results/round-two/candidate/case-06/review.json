@@ -1,0 +1,25 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The tini package has been removed from stage-packages, but the enabled service command depends on /usr/bin/tini. Evidence confirms the proposed filesystem contains no /usr/bin/tini, symlink, or alternative tini binary; no transitive dependency provides it. The service will fail at startup. Restore tini to stage-packages or confirm in the PR that this removal is intentional and the command has been updated.",
+      "evidence": [
+        {"path": "recipes/after/rockcraft.yaml", "line": 14},
+        {"path": "recipes/after/rockcraft.yaml", "line": 19},
+        {"path": "evidence.md", "line": 9}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": ["packages"],
+  "summary": "Source bump (commit 000000000000...000d) removes tini from app part stage-packages. Service command and all other recipe elements unchanged. Proposed filesystem lacks required /usr/bin/tini binary."
+}

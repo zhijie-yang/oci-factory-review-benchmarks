@@ -1,0 +1,14 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": ["version"],
+  "summary": "Commit bump from 0000000000000000000000000000000000000016 to 0000000000000000000000000000000000000017 advances recipe version from 1.2.0 to 1.2.1 with source-tag v1.2.0 → v1.2.1. Recipe structure unchanged: app, deb-security-manifest, and demo service present in both snapshots. Edge-only release to 1.2-24.04 track. All policy gates pass."
+}

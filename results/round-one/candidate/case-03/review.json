@@ -1,0 +1,40 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Part removal lacks author confirmation. The build-marker part is removed in the proposed recipe, but the PR author has not confirmed the removal is intentional. Per §3, source bumps that drop parts: entries require either restoration or explicit author confirmation; upstream commit messages do not satisfy this requirement.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 4
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 27
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": null
+        },
+        {
+          "path": "context.md",
+          "line": 46
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "parts"
+  ],
+  "summary": "Trigger commit bumped to 0000000000000000000000000000000000000007; recipe removes build-marker part. Part confirmed unused with no runtime impact. Author confirmation of intentionality required; revision remains at edge until confirmed."
+}

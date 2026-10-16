@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The proposed commit removes the tini package from stage-packages (after/rockcraft.yaml:20 deletion), but the unchanged demo service command at line 14 still requires /usr/bin/tini. Per evidence, tini is the sole supplier of that executable; the prior filesystem contains it but the proposed filesystem does not. No other source provides it. The service will fail. Restore the tini entry or confirm the command change is intentional.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 19
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "evidence.md",
+          "line": 8
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "The source commit is bumped from 000000000000000000000000000000000000000c to 000000000000000000000000000000000000000d. The proposed recipe removes tini from stage-packages while the service command remains unchanged and requires /usr/bin/tini."
+}

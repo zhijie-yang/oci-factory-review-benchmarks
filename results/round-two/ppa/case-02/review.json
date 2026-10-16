@@ -1,0 +1,28 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "Proposed end-of-life date 2027-04-16 exceeds the maximum allowed date 2027-01-16 (today 2026-10-16 + 3 months). The application is upstream-sourced and no support plan is documented. Either reduce the EOL date to within the cap or provide a documented support plan for maintainer approval.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Trigger updates recipe commit from 0000000000000000000000000000000000000004 to 0000000000000000000000000000000000000005, corresponding to upstream application v1.2.0 → v1.2.1. No parts, services, scripts, or package changes in recipe structure. EOL date extension violates cap without documented support plan."
+}

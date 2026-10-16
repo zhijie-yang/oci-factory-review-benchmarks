@@ -1,0 +1,40 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "End-of-life date 2027-04-16 violates the 3-month cap (today + 3 months = 2027-01-16). The main application is upstream-sourced (demo-app from Ubuntu archive). No accepted support plan or human CODEOWNERS approval is cited. Reduce end-of-life to 2027-01-16 or earlier, or provide a support plan for maintainer approval.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "category": "ppa-provenance",
+      "severity": "nit",
+      "message": "PPA repository declaration added (canonical-demo/stable) without documentation of which shipped packages, if any, are sourced from it versus the Ubuntu archive. For transparency, document the package provenance for the PPA.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 27
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version",
+    "repositories"
+  ],
+  "summary": "Commit bumped from 0000000000000000000000000000000000000002 to 0000000000000000000000000000000000000003; end-of-life extended from 2026-12-01 to 2027-04-16 on track 1.2-24.04 (edge only). Recipe addition: PPA repository declaration. No parts, services, or base changes."
+}

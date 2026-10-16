@@ -1,0 +1,24 @@
+{
+  "agent": "baseline",
+  "task": "case-05",
+  "sandbox": "docker",
+  "image": "sha256:3a8bc275dc616787bc26019c61f46b90d04561b8739e41aa6c9d891f2bc270bf",
+  "exit_code": 0,
+  "duration_s": 47.32,
+  "status": "ok",
+  "pats_version": "v0.7.2",
+  "summary": {
+    "num_turns": 9,
+    "cost_usd": 0.03654205,
+    "has_cost": true,
+    "input_tokens": 49,
+    "output_tokens": 2687,
+    "cache_read_tokens": 107418,
+    "cache_creation_tokens": 9853,
+    "tools": {
+      "read": 9,
+      "skill": 1,
+      "write": 2
+    }
+  }
+}

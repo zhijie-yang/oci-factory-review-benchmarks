@@ -1,0 +1,40 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Package slice libgomp1_libs removed from runtime-libraries part. The service demo runs with --engine parallel (recipes/after/rockcraft.yaml:14), which requires libgomp.so.1 provided only by the removed slice. After removal, libgomp.so.1 is not supplied by any remaining slice, base, or part, and startup will fail. Restore the slice or confirm the engine option is no longer used.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 29
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 14
+        },
+        {
+          "path": "evidence.md",
+          "line": 8
+        },
+        {
+          "path": "evidence.md",
+          "line": 16
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Commit bumped; runtime-libraries part removes libgomp1_libs slice, breaking parallel engine startup."
+}

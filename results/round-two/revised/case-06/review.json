@@ -1,0 +1,25 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Package tini removed from stage-packages, but service command still references /usr/bin/tini. Evidence shows proposed filesystem has no /usr/bin/tini executable, symlink, or transitive supplier. Service will fail to start. Restore tini to stage-packages or update service command and confirm intent.",
+      "evidence": [
+        {"path": "recipes/after/rockcraft.yaml", "line": 20},
+        {"path": "oci/demo/image.yaml", "line": 14},
+        {"path": "evidence.md", "line": 8}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": ["packages"],
+  "summary": "Commit 000c → 000d: tini package removed from stage-packages. No other recipe changes (parts, services, version, base, manifest part all retained)."
+}

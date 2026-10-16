@@ -1,0 +1,40 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The proposed recipe (rocks/new/rockcraft.yaml) removes the 'demo-info' service that was present in the prior recipe (rocks/old/rockcraft.yaml). Per code-review §3, a source bump that drops a services: entry is a blocker and requires either restoration or explicit PR-author confirmation that the removal is intentional. No confirmation is present in the PR discussion.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 16
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 11
+        },
+        {
+          "path": "evidence.md",
+          "line": 7
+        },
+        {
+          "path": "context.md",
+          "line": 48
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "services"
+  ],
+  "summary": "Directory reference changed from rocks/old to rocks/new at the same commit (0000000000000000000000000000000000000008). Proposed recipe removes the demo-info service (disabled on-demand informational endpoint). No other parts, packages, version, track or repository changes."
+}

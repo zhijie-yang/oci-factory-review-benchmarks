@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The jq package is removed from app stage-packages in the new commit (recipes/before/rockcraft.yaml:21 → removed in recipes/after/rockcraft.yaml). Per §3 recipe-regression rules, removal of package entries requires explicit author confirmation that the removal is intentional. The context notes no application source, no documented tool contract, and no integration coverage analysis for optional JSON-processing paths. The author's claim that jq is optional lacks usage analysis. Whether any supported runtime path depends on jq cannot be determined from the supplied bundle.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 4
+        },
+        {
+          "path": "context.md",
+          "line": 45
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Commit 0000000000000000000000000000000000000013 removes jq from the demo-app rock's stage-packages. The trigger and track remain within the established 1.2-24.04 edge-only release. The material change to package composition lacks documented confirmation that removal is safe. Author must confirm removal is intentional with evidence of non-use in all supported paths, or restore the package."
+}

@@ -1,0 +1,16 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Trigger commit advanced to 0000000000000000000000000000000000000017. Recipe version bumped from 1.2.0 to 1.2.1 with app part source-tag updated to v1.2.1; all other contents identical."
+}

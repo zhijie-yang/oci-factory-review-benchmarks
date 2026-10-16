@@ -1,0 +1,55 @@
+sandboxes:
+  - id: docker
+    kind: container
+    driver: docker
+    build: .
+
+agents:
+  - id: baseline
+    kind: opencode-openrouter
+    model: anthropic/claude-haiku-4.5
+  - id: ppa
+    kind: opencode-openrouter
+    model: anthropic/claude-haiku-4.5
+  - id: candidate
+    kind: opencode-openrouter
+    model: anthropic/claude-haiku-4.5
+  - id: revised
+    kind: opencode-openrouter
+    model: anthropic/claude-haiku-4.5
+
+tasks:
+  - &review
+    id: case-01
+    prompt: ./prompt.md
+    prepare: ./runner.py prepare
+    collect: ./runner.py collect
+    timeout: 5m
+  - {<<: *review, id: case-02}
+  - {<<: *review, id: case-03}
+  - {<<: *review, id: case-04}
+  - {<<: *review, id: case-05}
+  - {<<: *review, id: case-06}
+  - {<<: *review, id: case-07}
+  - {<<: *review, id: case-08}
+  - {<<: *review, id: case-09}
+  - {<<: *review, id: case-10}
+  - {<<: *review, id: case-11}
+  - {<<: *review, id: case-12}
+
+scorers:
+  - id: verdict
+    score: ./runner.py score
+  - id: findings
+    score: ./runner.py score
+  - id: gates
+    score: ./runner.py score
+  - id: summary
+    score: ./runner.py score
+
+suites:
+  - id: full
+    agents: [baseline, ppa, candidate, revised]
+    tasks: [case-01, case-02, case-03, case-04, case-05, case-06,
+            case-07, case-08, case-09, case-10, case-11, case-12]
+    scorers: [verdict, findings, gates, summary]

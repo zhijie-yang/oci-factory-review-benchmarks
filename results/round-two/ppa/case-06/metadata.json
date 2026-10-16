@@ -1,0 +1,24 @@
+{
+  "agent": "ppa",
+  "task": "case-06",
+  "sandbox": "docker",
+  "image": "sha256:3a8bc275dc616787bc26019c61f46b90d04561b8739e41aa6c9d891f2bc270bf",
+  "exit_code": 0,
+  "duration_s": 30.38,
+  "status": "ok",
+  "pats_version": "v0.7.2",
+  "summary": {
+    "num_turns": 8,
+    "cost_usd": 0.027712250000000004,
+    "has_cost": true,
+    "input_tokens": 46,
+    "output_tokens": 1957,
+    "cache_read_tokens": 95800,
+    "cache_creation_tokens": 6641,
+    "tools": {
+      "read": 9,
+      "skill": 1,
+      "write": 2
+    }
+  }
+}

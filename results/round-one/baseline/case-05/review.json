@@ -1,0 +1,27 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "nit",
+      "message": "The source bump (commit 000000000000000000000000000000000a → 000000000000000000000000000000000b) drops the build-marker part from rockcraft.yaml. The upstream commit message and PR author confirm this is intentional: 'Intentionally remove the unused build-marker part.' / 'I confirm that removing build-marker is intentional. It is an empty nil part with no outputs or users; please retain its removal in this source update.' Evidence confirms build-marker is a nil part with no source, packages, scripts or output, and no other part depends on it. The removal changes neither the installed filesystem nor the service execution contract. Not a blocker.",
+      "evidence": [
+        {"path": "oci/demo/image.yaml", "line": 4},
+        {"path": "recipes/before/rockcraft.yaml", "line": 27},
+        {"path": "context.md", "line": 45}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "The trigger bumps a single OCI image's source commit within an existing, stable release track (1.2-24.04). The underlying recipe removes an unused nil part (build-marker) per explicit upstream and author intent. No other recipe, release policy, or documentation changes are present."
+}

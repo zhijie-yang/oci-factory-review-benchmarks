@@ -1,0 +1,40 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The directory change from rocks/old to rocks/new removes the demo-info service from the recipe (recipes/before/rockcraft.yaml:16-19 removed). Per §3 of the code-review skill, a service removal requires explicit PR-author confirmation that it is intentional. The statement 'Use the other recipe directory' does not constitute that confirmation. Request explicit acknowledgment before proceeding.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 9
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 16
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 1
+        },
+        {
+          "path": "context.md",
+          "line": 48
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "services"
+  ],
+  "summary": "The diff changes upload.directory from rocks/old to rocks/new. The corresponding recipe drops the demo-info service. Per §3, this removal requires author confirmation of intent. The service is disabled at startup and independent (evidence.md), but removal is unacknowledged in supplied discussion."
+}

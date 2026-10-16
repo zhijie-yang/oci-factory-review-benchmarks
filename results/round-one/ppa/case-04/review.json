@@ -1,0 +1,24 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The demo-info service is removed from the proposed recipe without PR-author confirmation that the removal is intentional. Per §3 recipe regression rules, dropping a services entry requires either restoration or explicit author confirmation in the PR discussion. Requested action: provide confirmation in the PR or restore the service.",
+      "evidence": [
+        {"path": "recipes/before/rockcraft.yaml", "line": 16},
+        {"path": "recipes/after/rockcraft.yaml", "line": 11}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": ["services"],
+  "summary": "The trigger diff changes upload.directory from rocks/old to rocks/new at the same commit. The recipe snapshots differ only in the removal of the demo-info service (a disabled on-demand service). This removal is unconfirmed by the author and constitutes a recipe regression blocker."
+}

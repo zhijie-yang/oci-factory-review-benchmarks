@@ -1,0 +1,27 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "nit",
+      "message": "Recipe comparison unavailable: source rockcraft.yaml snapshots for commits 0000000000000000000000000000000000000018 and 0000000000000000000000000000000000000019 are not provided in this offline bundle. Recipe-regression and deb-manifest gates remain not-assessed. Verify locally or provide evidence in CI logs before merging.",
+      "evidence": [
+        {"path": "context.md", "line": 45},
+        {"path": "context.md", "line": 46},
+        {"path": "oci/demo/image.yaml", "line": 4}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "not-assessed",
+    "recipe-regression": "not-assessed",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "not-assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Source commit bump from 0000000000000000000000000000000000000018 to 0000000000000000000000000000000000000019 in 1.2-24.04 edge track. EOL cap (2026-12-01) satisfies 3-month policy. Track naming and edge-first rules pass. Recipe snapshots unavailable; recipe-regression and deb-manifest gates remain not-assessed."
+}

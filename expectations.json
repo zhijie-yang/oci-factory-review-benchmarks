@@ -1,0 +1,110 @@
+{
+  "case-01": {
+    "title": "Case 01",
+    "rationale": "The only recipe change adds a PPA. Its declaration does not establish shipped package provenance or direct main-application source use, so the long EOL does not trigger the cap. Ask which shipped packages come from the PPA as an advisory only; the manifest source is exempt.",
+    "verdict": "Comment",
+    "findings": [{"category": "ppa-provenance", "severity": "nit"}],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "pass", "vulnerability-scan": "not-assessed"},
+    "changes": ["repositories"],
+    "comparison": "assessed"
+  },
+  "case-02": {
+    "title": "Case 02",
+    "rationale": "The app part directly builds from a canonical Git source; Canonical ownership does not exempt it. With no accepted support plan, 2027-04-16 exceeds the frozen 2026-10-16 plus three-month deadline of 2027-01-16. The version-only recipe update itself introduces no evidenced regression.",
+    "verdict": "Request changes",
+    "findings": [{"category": "eol-cap", "severity": "blocker"}],
+    "gates": {"eol-cap": "fail", "deb-manifest": "pass", "recipe-regression": "pass", "vulnerability-scan": "not-assessed"},
+    "changes": ["version"],
+    "comparison": "assessed"
+  },
+  "case-03": {
+    "title": "Case 03",
+    "rationale": "A source bump removes a parts entry. Although the empty part is harmless and the upstream commit calls the removal intentional, the PR author has not confirmed it in this PR. The explicit removal rule requires restoration or author confirmation, independent of runtime harm.",
+    "verdict": "Request changes",
+    "findings": [{"category": "recipe-regression", "severity": "blocker"}],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "fail", "vulnerability-scan": "not-assessed"},
+    "changes": ["parts"],
+    "comparison": "assessed"
+  },
+  "case-04": {
+    "title": "Case 04",
+    "rationale": "The commit is unchanged, but selecting another directory removes a services entry. Directory changes require recipe comparison too. The missing PR-author confirmation triggers the explicit removal rule even for a disabled informational service.",
+    "verdict": "Request changes",
+    "findings": [{"category": "recipe-regression", "severity": "blocker"}],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "fail", "vulnerability-scan": "not-assessed"},
+    "changes": ["services"],
+    "comparison": "assessed"
+  },
+  "case-05": {
+    "title": "Case 05",
+    "rationale": "The recipe delta is identical to case-03, but this PR's author explicitly confirms the removal. The part has no inputs, outputs or consumers, so the supplied evidence also establishes that the removal is harmless; approval is not based on intent alone.",
+    "verdict": "Approve",
+    "findings": [],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "pass", "vulnerability-scan": "not-assessed"},
+    "changes": ["parts"],
+    "comparison": "assessed"
+  },
+  "case-06": {
+    "title": "Case 06",
+    "rationale": "Removing tini from stage-packages leaves the unchanged enabled service's first executable, /usr/bin/tini, absent. Synthetic complete-rootfs and dependency-closure evidence excludes transitive, base and alternate providers, proving a concrete startup failure rather than inferring harm from package removal alone.",
+    "verdict": "Request changes",
+    "findings": [{"category": "recipe-regression", "severity": "blocker"}],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "fail", "vulnerability-scan": "not-assessed"},
+    "changes": ["packages"],
+    "comparison": "assessed"
+  },
+  "case-07": {
+    "title": "Case 07",
+    "rationale": "Removing libgomp1_libs leaves the configured parallel engine's mandatory plugin dependency libgomp.so.1 unresolved. Synthetic evidence covers the complete base, deb and slice closures and all loader paths; no transitive provider can mask the removal. The deb security manifest remains present for all deb and sliced content.",
+    "verdict": "Request changes",
+    "findings": [{"category": "recipe-regression", "severity": "blocker"}],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "fail", "vulnerability-scan": "not-assessed"},
+    "changes": ["packages"],
+    "comparison": "assessed"
+  },
+  "case-08": {
+    "title": "Case 08",
+    "rationale": "The override changes /opt/demo from daemon-owned 0750 to root-owned 0700. The unchanged nonroot runtime must traverse it to open its mandatory config. Synthetic final modes and identity/capability assumptions prove EACCES, despite the config file itself remaining readable.",
+    "verdict": "Request changes",
+    "findings": [{"category": "recipe-regression", "severity": "blocker"}],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "fail", "vulnerability-scan": "not-assessed"},
+    "changes": ["scripts"],
+    "comparison": "assessed"
+  },
+  "case-09": {
+    "title": "Case 09",
+    "rationale": "jq is removed from an existing part, not a whole part or service. No concrete affected behavior is established, but optional integration usage is also not proven absent. Ask for usage analysis or coverage as a nit; leave runtime regression safety not assessed rather than declaring it safe or inventing a blocker.",
+    "verdict": "Comment",
+    "findings": [{"category": "recipe-regression", "severity": "nit"}],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "not-assessed", "vulnerability-scan": "not-assessed"},
+    "changes": ["packages"],
+    "comparison": "assessed"
+  },
+  "case-10": {
+    "title": "Case 10",
+    "rationale": "The override merely factors a quoted directory path into a private shell variable. The supplied assumptions establish identical output bytes, modes and ownership. A non-version script change without a behavioral regression is not a blocker.",
+    "verdict": "Approve",
+    "findings": [],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "pass", "vulnerability-scan": "not-assessed"},
+    "changes": ["scripts"],
+    "comparison": "assessed"
+  },
+  "case-11": {
+    "title": "Case 11",
+    "rationale": "Only recipe version and main-app source-tag advance within 1.2.x; the track remains correct and there are no recipe behavioral changes. The directly sourced application's 2026-12-01 EOL is before 2027-01-16, so no support-plan exception is required.",
+    "verdict": "Approve",
+    "findings": [],
+    "gates": {"eol-cap": "pass", "deb-manifest": "pass", "recipe-regression": "pass", "vulnerability-scan": "not-assessed"},
+    "changes": ["version"],
+    "comparison": "assessed"
+  },
+  "case-12": {
+    "title": "Case 12",
+    "rationale": "Both recipe lookups are unavailable offline. Approve only the locally checkable trigger scope, explicitly disclaiming recipe comparison, provenance-dependent EOL assessment, deb-manifest and recipe-regression checks. Empty changes means no recipe delta was assessed, not proof that recipes are identical. No synthetic build or vulnerability-scan success may be claimed.",
+    "verdict": "Approve",
+    "findings": [],
+    "gates": {"eol-cap": "not-assessed", "deb-manifest": "not-assessed", "recipe-regression": "not-assessed", "vulnerability-scan": "not-assessed"},
+    "changes": [],
+    "comparison": "not-assessed"
+  }
+}

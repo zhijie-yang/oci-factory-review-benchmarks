@@ -1,0 +1,34 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Commit bump in upstream-sourced trigger requires recipe comparison. Per §3, a source bump demands fetching the prior and proposed rockcraft.yaml to verify no parts: or services: entries were dropped (recipe regression), confirm deb-security-manifest compliance for any stage-packages, and confirm package source provenance. Both snapshots are missing from this offline review bundle; recipe gates cannot pass.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 4
+        },
+        {
+          "path": "context.md",
+          "line": 45
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "edge-first": "pass",
+    "track-naming": "pass",
+    "eol-cap": "not-assessed",
+    "deb-manifest": "not-assessed",
+    "recipe-regression": "not-assessed",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "not-assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Single commit bump in canonical/demo-rock from 0000000000000000000000000000000000000018 to 0000000000000000000000000000000000000019 on the stable 1.2-24.04 track at edge risk. Recipe snapshots unavailable for offline review; recipe-regression and deb-manifest gates cannot be assessed. Track naming, EOL declaration, and release structure are sound. Support plan confirmation needed for upstream-sourced EOL cap validation."
+}

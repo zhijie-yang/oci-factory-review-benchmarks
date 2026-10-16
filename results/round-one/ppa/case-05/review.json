@@ -1,0 +1,16 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "parts"
+  ],
+  "summary": "Source bump from 000000000000000000000000000000000000000a to 000000000000000000000000000000000000000b removes intentionally-unused nil build-marker part; author-confirmed non-breaking change. Deb security manifest requirement satisfied. All locally-checkable gates pass."
+}

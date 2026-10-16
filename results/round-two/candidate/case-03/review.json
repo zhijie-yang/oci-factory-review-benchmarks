@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Source bump removes build-marker part from rockcraft.yaml without author confirmation of intentional removal. Per §3 recipe regression rule, request changes until restored or author confirms removal in PR. Upstream commit message documents intent, but PR author's statement is only 'Update the source commit' with no separate confirmation.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 27
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": null
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "parts"
+  ],
+  "summary": "Source bump (commit 0000000000000000000000000000000000000007) removes build-marker nil part from recipe. Evidence shows removal changes neither installed filesystem nor service execution. However, removal is blocker per §3 recipe-regression rule absent explicit author confirmation in PR."
+}

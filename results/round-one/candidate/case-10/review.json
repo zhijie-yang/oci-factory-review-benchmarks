@@ -1,0 +1,26 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "other",
+      "severity": "nit",
+      "message": "override-build script refactored to use shell variable data_dir for readability; functionally equivalent per evidence",
+      "evidence": [
+        {"path": "recipes/after/rockcraft.yaml", "line": 30},
+        {"path": "evidence.md", "line": 8}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "scripts"
+  ],
+  "summary": "Commit bump (0000...0014 → 0000...0015) contains shell-variable refactor in metadata override-build; no behavioral change, no parts or services removed."
+}

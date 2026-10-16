@@ -1,0 +1,37 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "Proposed end-of-life (2027-04-16) exceeds the EOL cap cutoff (2027-01-16) by 3 months. The app part sources from https://github.com/canonical/demo-rock with source-tag v1.2.1, making this an upstream-sourced application subject to §2 EOL cap. No accepted support plan is available per context.md:12. Revise the EOL date to 2027-01-16 or earlier, or request human acceptance of a support plan in CODEOWNERS.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 13
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "context.md",
+          "line": 12
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version",
+    "packages"
+  ],
+  "summary": "Patch version update from 1.2.0 to 1.2.1 with app source-tag changed from v1.2.0 to v1.2.1. No changes to parts structure, services, build/stage packages, or scripts. Recipe comparison is complete; evidence confirms no behavioral changes."
+}

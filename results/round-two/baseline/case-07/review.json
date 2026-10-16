@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The runtime-libraries part removed libgomp1_libs from stage-packages. The service command /usr/bin/demo serve --engine parallel loads parallel.so, which requires libgomp.so.1 as a mandatory DT_NEEDED dependency. Removing this slice leaves no other source for the library in the base, remaining slices, or full deb dependency closure. The application will exit at startup. Restore libgomp1_libs or confirm the removal is intentional and documented in the PR description.",
+      "evidence": [
+        {
+          "path": "changes.diff",
+          "line": 7
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 29
+        },
+        {
+          "path": "evidence.md",
+          "line": 8
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Trigger commit updated; proposed recipe removes libgomp1_libs slice from runtime-libraries part. EOL cap (2026-12-01, ~46 days) and track naming pass. Deb security manifest correctly present. Recipe regression fails: removed library is mandatory for configured service engine."
+}

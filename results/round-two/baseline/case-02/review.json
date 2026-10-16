@@ -1,0 +1,33 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "Proposed end-of-life 2027-04-16 exceeds 3-month cap required for upstream-sourced rocks without accepted support plan. App part builds from canonical/demo-rock (recipes/after/rockcraft.yaml:19–21). Reduce EOL to 2027-01-16 or obtain explicit CODEOWNERS approval of a support plan.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 13
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 19
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version",
+    "repositories"
+  ],
+  "summary": "Source version and tag bump from 1.2.0 to 1.2.1 (patch update); no parts, services, or build/stage packages changed. EOL extended by 3 months beyond policy cap, blocking approval pending support plan documentation."
+}

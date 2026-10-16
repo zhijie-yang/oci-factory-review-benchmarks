@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "EOL date 2027-04-16 exceeds the 3-month cap for upstream-sourced rocks without an accepted support plan. The demo rock sources from canonical/demo-rock (source-type: git), making it upstream-sourced. Per §2 release policy, end-of-life must not exceed today (2026-10-16) + 3 months. Proposed EOL is approximately 6 months away. Either provide a support plan accepted in CODEOWNERS or amend the EOL to no later than 2027-01-16.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 13
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 19
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 19
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Patch-version bump from v1.2.0 to v1.2.1 with no recipe regression; deb-security-manifest present. EOL extension violates 3-month cap for upstream-sourced rock without support plan."
+}

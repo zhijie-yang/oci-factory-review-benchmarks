@@ -1,0 +1,27 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Recipe regression: the `build-marker` part present in the prior recipe has been removed in this source bump. Per §3, removal of a `parts:` entry requires confirmation from the PR author that the removal is intentional; an upstream commit message does not satisfy this requirement. Request that the PR author explicitly confirm the intentional removal or restore the part.",
+      "evidence": [
+        {"path": "recipes/before/rockcraft.yaml", "line": 27},
+        {"path": "recipes/after/rockcraft.yaml", "line": 16},
+        {"path": "context.md", "line": 45}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "parts"
+  ],
+  "summary": "Source commit bumped (0000000000000000000000000000000000000006 → 0000000000000000000000000000000000000007) removes `build-marker` part from recipe. No PR author confirmation provided; procedural gate blocks approval despite operational safety."
+}

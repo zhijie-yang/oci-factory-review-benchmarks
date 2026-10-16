@@ -1,0 +1,14 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": ["version"],
+  "summary": "Recipe patch-version update from v1.2.0 to v1.2.1 within established 1.2-24.04 track; no changes to parts, services, packages or scripts; deb-security-manifest present; EOL cap satisfied."
+}

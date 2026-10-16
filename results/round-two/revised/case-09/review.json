@@ -1,0 +1,28 @@
+{
+  "verdict": "Comment",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "nit",
+      "message": "Package jq removed from stage-packages in app part. Author claims optional but provided no usage analysis, runtime inventory, or integration coverage. Verify no supported path depends on it before merge.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 20
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "not-assessed",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Trigger commit bumped; rockcraft.yaml shows jq removed from stage-packages (app part). Removal unverified for runtime impact."
+}

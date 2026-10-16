@@ -1,0 +1,25 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The demo-info service is removed in the proposed recipe (rocks/new) compared to the prior recipe (rocks/old). Per §3, service removal in a source bump requires explicit author confirmation in the PR. No such confirmation is present in the supplied discussion. Either restore the service or obtain confirmation from the author that the removal is intentional.",
+      "evidence": [
+        {"path": "oci/demo/image.yaml", "line": 5},
+        {"path": "recipes/before/rockcraft.yaml", "line": 16},
+        {"path": "recipes/after/rockcraft.yaml", "line": 15}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": ["services"],
+  "summary": "The image trigger directory changes from rocks/old to rocks/new at the same commit. The new recipe removes the demo-info service (a disabled, on-demand informational service). This removal is unconfirmed by the author and blocks approval."
+}

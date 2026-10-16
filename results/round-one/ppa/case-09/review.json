@@ -1,0 +1,32 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Removal of jq from stage-packages without evidence of non-use. The prior recipe included jq, and the proposed recipe removes it. Per context.md, no application source, runtime inventory or usage analysis has been supplied. Author must restore the package or provide detailed evidence that all supported runtime paths function without jq.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "context.md",
+          "line": 45
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Commit bump (0000000000000000000000000000000000000012 → 0000000000000000000000000000000000000013) reflects a source-recipe update removing jq from stage-packages. No other trigger, service, part, version, base or repository changes are present. Recipe-regression gate fails due to unsupported package removal."
+}

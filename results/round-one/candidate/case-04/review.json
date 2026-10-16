@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Service removal without author confirmation. The proposed recipe at rocks/new/rockcraft.yaml removes the demo-info service (lines 16-19 in prior recipe) without documented PR-author intent. Per §3 recipe regression rules, service removals must be restored or explicitly confirmed as intentional. While the service is disabled and has no dependency on the primary demo service, the regression gate requires author acknowledgment.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 16
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 16
+        },
+        {
+          "path": "context.md",
+          "line": 48
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "services"
+  ],
+  "summary": "Trigger directory changes from rocks/old to rocks/new (same commit). Recipe comparison assessed: demo-info service removed; all other content (demo service, parts, packages, base, scripts) retained. No version, base, or package changes."
+}

@@ -1,0 +1,14 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [],
+  "summary": "Commit bump from 0000000000000000000000000000000000000014 to 0000000000000000000000000000000000000015. Recipe structure unchanged; metadata override-build refactored to use shell variable (functionally equivalent per evidence). No parts, services, version, base, track, or repository changes. Security manifest present and required."
+}

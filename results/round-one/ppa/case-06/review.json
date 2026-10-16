@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The proposed recipe drops tini from stage-packages, breaking the service command which references /usr/bin/tini. The prior recipe stages tini; the proposed build provides no alternative source (no transitive dependency, base layer, manifest output, or other part supplies it). Pebble will execute the command literally at runtime, causing failure. Restore tini to stage-packages or confirm intentional removal with explicit PR confirmation (not an upstream commit reference).",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 14
+        },
+        {
+          "path": "evidence.md",
+          "line": 8
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Commit updated from 000000000000000000000000000000000000000c to 000000000000000000000000000000000000000d. Recipe removed tini from stage-packages while service command retains unchanged reference to /usr/bin/tini. Proposed build provides no alternative source; runtime execution will fail."
+}

@@ -1,0 +1,37 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "End-of-life date 2027-04-16 exceeds the 3-month maximum for upstream-sourced applications without an accepted support plan. The app part sources from https://github.com/canonical/demo-rock. Per §2, end-of-life must be at most today + 3 months (frozen date 2026-10-16, cap 2027-01-16). Request: shorten EOL to 2027-01-16 or earlier, or provide an accepted support plan in CODEOWNERS.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 19
+        },
+        {
+          "path": "context.md",
+          "line": 12
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version",
+    "repositories"
+  ],
+  "summary": "Patch-version update from v1.2.0 to v1.2.1 with no package, service, script, path or permission changes. End-of-life extended 6 months to 2027-04-16, exceeding the 3-month cap for upstream-sourced applications without support plan approval."
+}

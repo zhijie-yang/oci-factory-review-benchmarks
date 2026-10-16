@@ -1,0 +1,43 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "stage-packages entry 'jq' is removed in the proposed recipe but the author has not provided usage analysis confirming no supported path depends on it. Per §3, removal requires either restoring the entry or explicit confirmation with supporting evidence.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "category": "eol-cap",
+      "severity": "nit",
+      "message": "end-of-life: 2026-12-01 is 97 days from today (2026-10-16). Per §2, when a rock is upstream-sourced and no support plan has been accepted in CODEOWNERS, EOL is at most today + 3 months. Request a support plan to justify this EOL date.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Proposed commit 0000000000000000000000000000000000000013 removes jq from stage-packages in the app part. Recipe regression blocks approval pending confirmed intentional removal with supporting usage analysis. EOL cap requires support plan approval. Keep at edge until resolved."
+}

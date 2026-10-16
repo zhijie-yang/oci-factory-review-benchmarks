@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "jq removal from app.stage-packages is unconfirmed. Author called it an optional tool but provided no usage analysis, runtime inventory, or integration coverage evidence. Cannot verify that no code path depends on it; author must affirmatively confirm removal is safe before approval.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 20
+        },
+        {
+          "path": "context.md",
+          "line": 45
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Source commit bump removes jq from stage-packages; all other recipe content unchanged. Removal lacks author confirmation that no code path depends on it."
+}

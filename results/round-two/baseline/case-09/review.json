@@ -1,0 +1,41 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Source bump removes jq package from app part stage-packages without evidence of safe removal. No supported runtime path analysis provided; cannot confirm removal is safe. Either restore jq, provide evidence of safe removal (grep of entry points, services, pebble config), or explicitly confirm removal intent with supporting analysis.",
+      "evidence": [
+        {
+          "path": "changes.diff",
+          "line": 8
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 20
+        },
+        {
+          "path": "context.md",
+          "line": 45
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version",
+    "packages"
+  ],
+  "summary": "Commit bump (0000000000000000000000000000000012 → 0000000000000000000000000000000013) on existing 1.2-24.04 edge track. Recipe removes jq package; removal unconfirmed safe per context supply."
+}

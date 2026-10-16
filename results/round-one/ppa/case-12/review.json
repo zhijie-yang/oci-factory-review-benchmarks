@@ -1,0 +1,30 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "The declared end-of-life date of 2026-12-01 exceeds the maximum of today (2026-10-16) + 3 months required by §2 EOL cap. No human-approved support plan is on file in CODEOWNERS. Provide a documented support plan or reduce the EOL date to comply with the gate.",
+      "evidence": [
+        {
+          "path": "changes.diff",
+          "line": 12
+        },
+        {
+          "path": "context.md",
+          "line": 12
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "not-assessed",
+    "recipe-regression": "not-assessed",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "not-assessed",
+  "changes": [],
+  "summary": "Source commit bump from 0000000000000000000000000000000018 to 0000000000000000000000000000000019 in canonical/demo-rock (rocks/demo). Track 1.2-24.04 edge-only, unchanged risks and metadata. Recipe snapshots unavailable; recipe deltas cannot be assessed. EOL cap gate fails: 2026-12-01 exceeds today + 3 months without documented support plan."
+}

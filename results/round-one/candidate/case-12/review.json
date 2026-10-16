@@ -1,0 +1,14 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "not-assessed",
+    "deb-manifest": "not-assessed",
+    "recipe-regression": "not-assessed",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "not-assessed",
+  "changes": [],
+  "summary": "Commit bump from 0000000000000000000000000000000000000018 to 0000000000000000000000000000000000000019 in upload[0]; track, EOL, and risks unchanged. Recipe snapshots unavailable; recipe gates deferred to CI."
+}

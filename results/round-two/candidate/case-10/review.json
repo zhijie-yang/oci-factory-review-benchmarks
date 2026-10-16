@@ -1,0 +1,16 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "scripts"
+  ],
+  "summary": "Shell-variable refactor in override-build; prior and proposed scripts produce identical runtime output, directory mode, and file ownership per supplied evidence. No parts, services, packages, or slices changed. Existing edge-only release satisfies regression and EOL policies."
+}

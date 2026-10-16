@@ -1,0 +1,32 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The build-marker part is removed in the proposed recipe. Per §3, a source bump that drops a parts entry requires explicit PR-author confirmation in the PR that the removal is intentional. The upstream commit message does not satisfy this requirement; only a statement from the PR author does. Request confirmation before merging.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 27
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 26
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "parts"
+  ],
+  "summary": "Source commit bumped from 0000000000000000000000000000000000000006 to 0000000000000000000000000000000000000007. Recipe diff: removal of the build-marker nil part. No other structural changes. Cannot approve pending author confirmation of the intentional part removal."
+}

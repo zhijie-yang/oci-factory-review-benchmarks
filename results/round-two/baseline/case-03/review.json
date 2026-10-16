@@ -1,0 +1,32 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Recipe regression: the source bump (commit 0000000000000000000000000000000000000007) drops the `build-marker` part that was present in the prior recipe (0000000000000000000000000000000000000006). Per §3 of the code-review skill, a part removal in a source bump requires explicit author confirmation in the PR discussion; an upstream commit message alone does not constitute that confirmation. The frozen PR context records only 'Update the source commit' from the author, with no explicit statement confirming the intentional removal. Request the author to confirm in the PR that the `build-marker` part removal is intentional.",
+      "evidence": [
+        {
+          "path": "changes.diff",
+          "line": 8
+        },
+        {
+          "path": "context.md",
+          "line": 45
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Trigger commit updated from 0000000000000000000000000000000000000006 to 0000000000000000000000000000000000000007. Sourced recipe removes the unused `build-marker` part. Evidence confirms the part is nil and without dependencies or runtime impact. Upstream commit message documents intentional removal, but the PR author has not explicitly confirmed this removal in the PR discussion, as required by §3 of the code-review skill."
+}

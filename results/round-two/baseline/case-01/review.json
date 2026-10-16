@@ -1,0 +1,40 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "EOL end-date 2027-04-16 exceeds the 3-month cap (max 2027-01-16 from today 2026-10-16) without an approved support plan in CODEOWNERS. Update to 2027-01-16 or provide evidence of support-plan acceptance.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "category": "other",
+      "severity": "nit",
+      "message": "PPA canonical-demo/stable is added but no apt candidate/origin report is provided. Clarify in the PR description which packages are expected from this PPA and the rationale for the change.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 27
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "repositories",
+    "version"
+  ],
+  "summary": "Source bump and EOL extension with PPA addition. Recipe structure retained (app and deb-security-manifest parts). EOL violation is the blocking issue; PPA opacity is informational."
+}

@@ -1,0 +1,32 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "End-of-life '2027-04-16' exceeds 3-month cap (today + 3 months = 2027-01-16) for upstream-sourced application without accepted support plan. Submit support plan for human review or reduce EOL date to 3 months or less from 2026-10-16.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        },
+        {
+          "path": "context.md",
+          "line": 12
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Recipe patch version update from 1.2.0 to 1.2.1 with no structural changes to parts, services or packages. EOL violation blocks release pending support plan acceptance or date adjustment."
+}

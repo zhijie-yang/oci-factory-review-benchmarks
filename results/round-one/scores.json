@@ -1,0 +1,913 @@
+{
+  "run_dir": "results/round-one",
+  "cells": [
+    {
+      "agent": "baseline",
+      "task": "case-01",
+      "scorer": "verdict",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-01",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-01",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "baseline",
+      "task": "case-01",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-02",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-02",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-02",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-02",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-03",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-03",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-03",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "baseline",
+      "task": "case-03",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-04",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-04",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-04",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "baseline",
+      "task": "case-04",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-05",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-05",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-05",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "baseline",
+      "task": "case-05",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-06",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-06",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-06",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "baseline",
+      "task": "case-06",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-07",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-07",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-07",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-07",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-08",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-08",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-08",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-08",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-09",
+      "scorer": "verdict",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-09",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-09",
+      "scorer": "gates",
+      "score": 0.5
+    },
+    {
+      "agent": "baseline",
+      "task": "case-09",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-10",
+      "scorer": "verdict",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-10",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-10",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "baseline",
+      "task": "case-10",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "baseline",
+      "task": "case-11",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-11",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-11",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-11",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-12",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-12",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "baseline",
+      "task": "case-12",
+      "scorer": "gates",
+      "score": 0.5
+    },
+    {
+      "agent": "baseline",
+      "task": "case-12",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-01",
+      "scorer": "verdict",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-01",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-01",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "ppa",
+      "task": "case-01",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-02",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-02",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-02",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-02",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-03",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-03",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-03",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "ppa",
+      "task": "case-03",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-04",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-04",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-04",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "ppa",
+      "task": "case-04",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-05",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-05",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-05",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "ppa",
+      "task": "case-05",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-06",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-06",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-06",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "ppa",
+      "task": "case-06",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-07",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-07",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-07",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-07",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-08",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-08",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-08",
+      "scorer": "gates",
+      "score": 0.5
+    },
+    {
+      "agent": "ppa",
+      "task": "case-08",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-09",
+      "scorer": "verdict",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-09",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-09",
+      "scorer": "gates",
+      "score": 0.5
+    },
+    {
+      "agent": "ppa",
+      "task": "case-09",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-10",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-10",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-10",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-10",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-11",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-11",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-11",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-11",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "ppa",
+      "task": "case-12",
+      "scorer": "verdict",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-12",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "ppa",
+      "task": "case-12",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "ppa",
+      "task": "case-12",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-01",
+      "scorer": "verdict",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-01",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-01",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "candidate",
+      "task": "case-01",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-02",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-02",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-02",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-02",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-03",
+      "scorer": "verdict",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-03",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-03",
+      "scorer": "gates",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-03",
+      "scorer": "summary",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-04",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-04",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-04",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "candidate",
+      "task": "case-04",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-05",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-05",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-05",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-05",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-06",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-06",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-06",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-06",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-07",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-07",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-07",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-07",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-08",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-08",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-08",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "candidate",
+      "task": "case-08",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-09",
+      "scorer": "verdict",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-09",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-09",
+      "scorer": "gates",
+      "score": 0.5
+    },
+    {
+      "agent": "candidate",
+      "task": "case-09",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-10",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-10",
+      "scorer": "findings",
+      "score": 0
+    },
+    {
+      "agent": "candidate",
+      "task": "case-10",
+      "scorer": "gates",
+      "score": 0.75
+    },
+    {
+      "agent": "candidate",
+      "task": "case-10",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-11",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-11",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-11",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-11",
+      "scorer": "summary",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-12",
+      "scorer": "verdict",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-12",
+      "scorer": "findings",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-12",
+      "scorer": "gates",
+      "score": 1
+    },
+    {
+      "agent": "candidate",
+      "task": "case-12",
+      "scorer": "summary",
+      "score": 1
+    }
+  ],
+  "per_pair": {
+    "baseline/case-01": 0.1875,
+    "baseline/case-02": 0.75,
+    "baseline/case-03": 0.9375,
+    "baseline/case-04": 0.9375,
+    "baseline/case-05": 0.4375,
+    "baseline/case-06": 0.9375,
+    "baseline/case-07": 0.75,
+    "baseline/case-08": 0.75,
+    "baseline/case-09": 0.375,
+    "baseline/case-10": 0.1875,
+    "baseline/case-11": 1,
+    "baseline/case-12": 0.625,
+    "candidate/case-01": 0.1875,
+    "candidate/case-02": 1,
+    "candidate/case-03": 0,
+    "candidate/case-04": 0.9375,
+    "candidate/case-05": 1,
+    "candidate/case-06": 1,
+    "candidate/case-07": 1,
+    "candidate/case-08": 0.9375,
+    "candidate/case-09": 0.375,
+    "candidate/case-10": 0.6875,
+    "candidate/case-11": 1,
+    "candidate/case-12": 1,
+    "ppa/case-01": 0.1875,
+    "ppa/case-02": 0.75,
+    "ppa/case-03": 0.6875,
+    "ppa/case-04": 0.9375,
+    "ppa/case-05": 0.9375,
+    "ppa/case-06": 0.9375,
+    "ppa/case-07": 1,
+    "ppa/case-08": 0.875,
+    "ppa/case-09": 0.375,
+    "ppa/case-10": 0.75,
+    "ppa/case-11": 1,
+    "ppa/case-12": 0.4375
+  },
+  "per_agent": {
+    "baseline": 0.65625,
+    "candidate": 0.7604166666666666,
+    "ppa": 0.7395833333333334
+  },
+  "overall": 0.71875
+}

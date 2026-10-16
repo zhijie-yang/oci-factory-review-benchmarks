@@ -1,0 +1,48 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "EOL extension to 2027-04-16 exceeds the 3-month policy limit from frozen review date 2026-10-16. No accepted support plan or CODEOWNERS approval is documented. Reduce EOL to 2027-01-16 or earlier, or provide a support plan.",
+      "evidence": [
+        {
+          "path": "changes.diff",
+          "line": 13
+        },
+        {
+          "path": "context.md",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "category": "other",
+      "severity": "nit",
+      "message": "Package repository declaration added without clarified provenance. The PPA entry 'canonical-demo/stable' in package-repositories is flagged per §3 advisory. Context confirms no apt candidate/origin report is supplied, so shipped package sources (PPA vs. Ubuntu archive) are unclear. Confirm intended package sources in PR discussion.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 27
+        },
+        {
+          "path": "context.md",
+          "line": 48
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version",
+    "repositories"
+  ],
+  "summary": "Source commit updated from 0000000000000000000000000000000000000002 to 0000000000000000000000000000000000000003 with 6-month EOL extension and PPA package-repositories declaration added."
+}

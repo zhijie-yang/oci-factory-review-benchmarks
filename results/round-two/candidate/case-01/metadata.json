@@ -1,0 +1,25 @@
+{
+  "agent": "candidate",
+  "task": "case-01",
+  "sandbox": "docker",
+  "image": "sha256:3a8bc275dc616787bc26019c61f46b90d04561b8739e41aa6c9d891f2bc270bf",
+  "exit_code": 0,
+  "duration_s": 41.21,
+  "status": "ok",
+  "pats_version": "v0.7.2",
+  "summary": {
+    "num_turns": 8,
+    "cost_usd": 0.032851849999999995,
+    "has_cost": true,
+    "input_tokens": 44,
+    "output_tokens": 2716,
+    "cache_read_tokens": 97666,
+    "cache_creation_tokens": 7569,
+    "tools": {
+      "glob": 2,
+      "read": 7,
+      "skill": 1,
+      "write": 2
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The tini package has been removed from stage-packages in the app part, but the service command still executes /usr/bin/tini. This breaks runtime execution. Either restore tini to stage-packages, remove the reference from the service command, or provide explicit justification in the PR.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 14
+        },
+        {
+          "path": "evidence.md",
+          "line": 8
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Trigger commit advance 000000000000000000000000000000000000000c → 000000000000000000000000000000000000000d within 1.2-24.04 track. Source recipe removes tini from staged packages without updating the service command dependency, causing runtime failure."
+}

@@ -1,0 +1,39 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Permission mode changed from 0750 to 0700 prevents the _daemon_ user (UID 584792) from accessing /opt/demo directory. The service runs as _daemon_ and must read /opt/demo/server.conf at startup with no fallback.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Ownership changed from 584792:584792 (daemon user) to 0:0 (root). Combined with mode 0700, the daemon service can no longer access /opt/demo at runtime.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 33
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "scripts"
+  ],
+  "summary": "Source commit bump modifies runtime-config part in rockcraft.yaml. Proposed changes alter /opt/demo from 584792:584792 0750 to 0:0 0700, removing execute permission and changing ownership from service user to root, breaking service access to mandatory configuration file."
+}

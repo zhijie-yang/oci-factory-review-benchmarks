@@ -1,0 +1,36 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Package removal regression: jq is dropped from the app part's stage-packages. Context indicates no usage analysis, runtime inventory, or application source was supplied to confirm this removal is safe. Per §3, this requires either restoration or explicit author confirmation that the removal is intentional.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 20
+        },
+        {
+          "path": "context.md",
+          "line": 45
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Source bump from commit 0000000000000000000000000000000000000012 to 0000000000000000000000000000000000000013 removes jq from stage-packages; awaiting confirmation that removal is intentional and safe."
+}

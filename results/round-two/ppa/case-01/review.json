@@ -1,0 +1,40 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "Proposed end-of-life date 2027-04-16 exceeds the 3-month cap (2027-01-16 maximum). No accepted support plan is documented. Reduce the end-of-life date to meet the cap or provide an accepted support plan in CODEOWNERS.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        }
+      ]
+    },
+    {
+      "category": "ppa-provenance",
+      "severity": "blocker",
+      "message": "Added package-repositories declaration (canonical-demo/stable) lacks evidence of which packages, if any, are sourced from the PPA. Provide an apt candidate/origin report showing actual package provenance, or remove the declaration if unused.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 27
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "repositories",
+    "version"
+  ],
+  "summary": "Source commit bumped (commit 000002 → 000003); end-of-life extended 2026-12-01 → 2027-04-16; package-repositories PPA added. EOL exceeds 3-month cap; PPA provenance unresolved."
+}

@@ -1,0 +1,48 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "End-of-life date 2027-04-16 extends ~6 months forward, exceeding the 3-month cap. No accepted support plan is documented. Application (demo-app 1.2.0) is staged from Ubuntu archive, not upstream-sourced. Reduce EOL to comply or provide an accepted support plan.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 8
+        },
+        {
+          "path": "context.md",
+          "line": 12
+        }
+      ]
+    },
+    {
+      "category": "ppa-provenance",
+      "severity": "blocker",
+      "message": "Package repository `canonical-demo/stable` PPA added without specified provenance. No apt candidate/origin report supplied. Clarify which packages, if any, will be selected from the PPA vs. the Ubuntu archive.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 27
+        },
+        {
+          "path": "context.md",
+          "line": 48
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "repositories",
+    "version"
+  ],
+  "summary": "Source revision bump with EOL extension and PPA addition. Recipe changes are limited to adding a package repository; parts and services are retained. Deb-security-manifest requirement met. EOL extension exceeds policy cap without support plan; PPA provenance unspecified."
+}

@@ -1,0 +1,18 @@
+{
+  "baseline": {
+    "commit": "63a27d3b8f335c2624980a5c58c4ce32b41878e4",
+    "sha256": "4ea75e8eabe4eacb3e0ca23e8451986ba997767908fc86d797bb4fe226ee18dc"
+  },
+  "ppa": {
+    "commit": "e996ff5e5c6e98b2979b2e2fc4156bd3c50b4ea1",
+    "sha256": "12ebb86a404a0c92042a77fd52d8a9c33afb63c75c4711ca05668e7b25e36a2c"
+  },
+  "candidate": {
+    "commit": "508d734607167b747a55dbe84e1711cecba3a77e",
+    "sha256": "e4b18013aef10c21cdac0f56e9e34bcf188035a849421534169b0aa102080a5a"
+  },
+  "revised": {
+    "commit": "6f3e78158cf110a8168122ad9eb6d38e85cdfd95",
+    "sha256": "be1724e8a29935b12fd3b1212be2b83efac01491678caa8523a86a41c3286aa0"
+  }
+}

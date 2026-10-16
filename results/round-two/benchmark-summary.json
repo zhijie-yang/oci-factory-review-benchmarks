@@ -1,0 +1,323 @@
+{
+  "run": "results/round-two",
+  "agents": {
+    "baseline": {
+      "aggregate": 0.6979166666666666,
+      "dimensions": {
+        "verdict": 0.75,
+        "findings": 0.6666666666666666,
+        "gates": 0.7916666666666666,
+        "summary": 0.5833333333333334
+      },
+      "verdict_matches": 9,
+      "false_blocked_cases": [
+        "case-01",
+        "case-09",
+        "case-12"
+      ],
+      "missed_blocker_cases": [],
+      "cost_usd": 0.33719745,
+      "task_seconds": 407.77000000000004,
+      "cases": {
+        "case-01": {
+          "expected_verdict": "Comment",
+          "actual_verdict": "Request changes",
+          "score": 0.1875
+        },
+        "case-02": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.5
+        },
+        "case-03": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.6875
+        },
+        "case-04": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.9375
+        },
+        "case-05": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 0.9375
+        },
+        "case-06": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.9375
+        },
+        "case-07": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.9375
+        },
+        "case-08": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 1
+        },
+        "case-09": {
+          "expected_verdict": "Comment",
+          "actual_verdict": "Request changes",
+          "score": 0.125
+        },
+        "case-10": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 0.9375
+        },
+        "case-11": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 1
+        },
+        "case-12": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Request changes",
+          "score": 0.1875
+        }
+      }
+    },
+    "ppa": {
+      "aggregate": 0.7083333333333334,
+      "dimensions": {
+        "verdict": 0.6666666666666666,
+        "findings": 0.6666666666666666,
+        "gates": 0.8333333333333334,
+        "summary": 0.6666666666666666
+      },
+      "verdict_matches": 8,
+      "false_blocked_cases": [
+        "case-01",
+        "case-05",
+        "case-09",
+        "case-12"
+      ],
+      "missed_blocker_cases": [],
+      "cost_usd": 0.31831465,
+      "task_seconds": 429.9,
+      "cases": {
+        "case-01": {
+          "expected_verdict": "Comment",
+          "actual_verdict": "Request changes",
+          "score": 0.1875
+        },
+        "case-02": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 1
+        },
+        "case-03": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.9375
+        },
+        "case-04": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.9375
+        },
+        "case-05": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Request changes",
+          "score": 0.1875
+        },
+        "case-06": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 1
+        },
+        "case-07": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.9375
+        },
+        "case-08": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.9375
+        },
+        "case-09": {
+          "expected_verdict": "Comment",
+          "actual_verdict": "Request changes",
+          "score": 0.4375
+        },
+        "case-10": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 0.6875
+        },
+        "case-11": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 1
+        },
+        "case-12": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Request changes",
+          "score": 0.25
+        }
+      }
+    },
+    "candidate": {
+      "aggregate": 0.6770833333333334,
+      "dimensions": {
+        "verdict": 0.75,
+        "findings": 0.5,
+        "gates": 0.7916666666666666,
+        "summary": 0.6666666666666666
+      },
+      "verdict_matches": 10,
+      "false_blocked_cases": [
+        "case-01",
+        "case-09"
+      ],
+      "missed_blocker_cases": [],
+      "cost_usd": 0.32552990000000004,
+      "task_seconds": 433.75000000000006,
+      "cases": {
+        "case-01": {
+          "expected_verdict": "Comment",
+          "actual_verdict": "Request changes",
+          "score": 0.1875
+        },
+        "case-02": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.5
+        },
+        "case-03": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0
+        },
+        "case-04": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 1
+        },
+        "case-05": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 1
+        },
+        "case-06": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.9375
+        },
+        "case-07": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.6875
+        },
+        "case-08": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 1
+        },
+        "case-09": {
+          "expected_verdict": "Comment",
+          "actual_verdict": "Request changes",
+          "score": 0.4375
+        },
+        "case-10": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 0.9375
+        },
+        "case-11": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 1
+        },
+        "case-12": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 0.4375
+        }
+      }
+    },
+    "revised": {
+      "aggregate": 0.8229166666666666,
+      "dimensions": {
+        "verdict": 1.0,
+        "findings": 0.6666666666666666,
+        "gates": 0.9583333333333334,
+        "summary": 0.6666666666666666
+      },
+      "verdict_matches": 12,
+      "false_blocked_cases": [],
+      "missed_blocker_cases": [],
+      "cost_usd": 0.32881435000000003,
+      "task_seconds": 410.89,
+      "cases": {
+        "case-01": {
+          "expected_verdict": "Comment",
+          "actual_verdict": "Comment",
+          "score": 0.75
+        },
+        "case-02": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.5
+        },
+        "case-03": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.6875
+        },
+        "case-04": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 1
+        },
+        "case-05": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 1
+        },
+        "case-06": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.75
+        },
+        "case-07": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 1
+        },
+        "case-08": {
+          "expected_verdict": "Request changes",
+          "actual_verdict": "Request changes",
+          "score": 0.5
+        },
+        "case-09": {
+          "expected_verdict": "Comment",
+          "actual_verdict": "Comment",
+          "score": 1
+        },
+        "case-10": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 1
+        },
+        "case-11": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 1
+        },
+        "case-12": {
+          "expected_verdict": "Approve",
+          "actual_verdict": "Approve",
+          "score": 0.6875
+        }
+      }
+    }
+  },
+  "total_task_cost_usd": 1.30985635,
+  "total_task_seconds": 1682.31
+}

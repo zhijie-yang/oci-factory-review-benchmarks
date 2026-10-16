@@ -1,0 +1,16 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "not-assessed",
+    "recipe-regression": "not-assessed",
+    "vulnerability-scan": "n/a"
+  },
+  "comparison": "not-assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Commit bump in established track 1.2-24.04 from 0000000000000000000000000000000018 to 0000000000000000000000000000000019. Source recipe snapshots required for full regression and manifest checks are not available in this offline bundle."
+}

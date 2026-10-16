@@ -1,0 +1,27 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The runtime-libraries part removes libgomp1_libs slice from staged packages. The application requires libgomp.so.1 to load its parallel engine; this library is provided exclusively by the removed slice. No other base, remaining package, or part dependency supplies it. The application will fail at startup with unresolved library dependency. Restore the slice or provide explicit upstream-backed justification for its removal before proceeding.",
+      "evidence": [
+        {"path": "recipes/before/rockcraft.yaml", "line": 31},
+        {"path": "recipes/after/rockcraft.yaml", "line": 30},
+        {"path": "evidence.md", "line": 7}
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Source commit bump (000e → 000f) removes libgomp1_libs slice from runtime-libraries part, breaking critical application startup dependency on libgomp.so.1 for the parallel engine."
+}

@@ -1,0 +1,16 @@
+{
+  "verdict": "Approve",
+  "scope": "local",
+  "findings": [],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "scripts"
+  ],
+  "summary": "Source bump refactors metadata part's override-build script to use data_dir shell variable; identical functional output confirmed by evidence. No parts or services changed. EOL cap satisfied."
+}

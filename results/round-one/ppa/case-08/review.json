@@ -1,0 +1,32 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "Runtime permission regression: /opt/demo ownership and permissions changed from 584792:584792 mode 0750 to 0:0 mode 0700. The service runs as _daemon_ (UID 584792) and cannot search a 0700 directory owned by root. The frozen evidence confirms the app must open /opt/demo/server.conf before listening with no fallback, causing startup failure.",
+      "evidence": [
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 30
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 33
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "pass",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "scripts"
+  ],
+  "summary": "Single-commit source bump on the established 1.2-24.04 edge-only track (0000000000000000000000000000000000000010 → 0000000000000000000000000000000000000011). The runtime-config build script modifies /opt/demo ownership and permissions, which breaks application access to its configuration file per the frozen evidence."
+}

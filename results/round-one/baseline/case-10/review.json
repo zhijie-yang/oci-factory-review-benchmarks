@@ -1,0 +1,28 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "End-of-life date 2026-12-01 exceeds the maximum allowed 3-month span from today (2026-10-16) for upstream-sourced rocks without an accepted support plan. Shorten to 2026-12-16 or earlier, or provide evidence of an accepted support plan in CODEOWNERS.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 12
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "Commit update (0x14 → 0x15) with shell variable refactor in metadata part override-build; behavior unchanged per evidence. No parts, services, track, or base changes. EOL policy violation blocks approval."
+}

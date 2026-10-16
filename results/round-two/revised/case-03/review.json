@@ -1,0 +1,32 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The source commit bump drops the build-marker part without PR-author confirmation that the removal is intentional. Per §3, part removal from a source bump requires explicit author confirmation in PR discussion (upstream commit messages do not satisfy this); the frozen discussion contains no such statement. Until confirmed, the revision must stay at edge and this blocks approval.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 4
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 27
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "not-assessed",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version"
+  ],
+  "summary": "The trigger file updates the source commit hash from 0000000000000000000000000000000000000006 to 0000000000000000000000000000000000000007. The proposed recipe removes the build-marker nil part (evidence shows removal is behavior-preserving), but lacks required PR-author confirmation per §3."
+}

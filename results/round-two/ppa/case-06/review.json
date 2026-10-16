@@ -1,0 +1,40 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "recipe-regression",
+      "severity": "blocker",
+      "message": "The proposed recipe removes tini from stage-packages (line 21 in before), but the service command on line 14 still explicitly invokes /usr/bin/tini. Evidence confirms tini is not present in the final filesystem and is supplied by no other means. This causes a runtime failure: Pebble cannot execute the service. Restore tini to stage-packages or update the service command.",
+      "evidence": [
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 21
+        },
+        {
+          "path": "recipes/after/rockcraft.yaml",
+          "line": 19
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 14
+        },
+        {
+          "path": "evidence.md",
+          "line": 9
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "n/a",
+    "deb-manifest": "pass",
+    "recipe-regression": "fail",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "packages"
+  ],
+  "summary": "Trigger commit updated from 000c to 000d. Source recipes differ: proposed recipe removes tini from stage-packages while unchanged service command still requires /usr/bin/tini, causing runtime failure."
+}

@@ -1,0 +1,6 @@
+.pats/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.log

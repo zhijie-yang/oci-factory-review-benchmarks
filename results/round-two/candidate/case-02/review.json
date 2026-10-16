@@ -1,0 +1,33 @@
+{
+  "verdict": "Request changes",
+  "scope": "local",
+  "findings": [
+    {
+      "category": "eol-cap",
+      "severity": "blocker",
+      "message": "EOL date 2027-04-16 exceeds the 3-month cap (today 2026-10-16 → maximum 2027-01-16). App part is upstream-sourced from canonical/demo-rock, and no human support plan approval is recorded in CODEOWNERS. Reduce EOL to 2027-01-16 or earlier, or provide an accepted support plan.",
+      "evidence": [
+        {
+          "path": "oci/demo/image.yaml",
+          "line": 13
+        },
+        {
+          "path": "recipes/before/rockcraft.yaml",
+          "line": 19
+        }
+      ]
+    }
+  ],
+  "gates": {
+    "eol-cap": "fail",
+    "deb-manifest": "pass",
+    "recipe-regression": "pass",
+    "vulnerability-scan": "not-assessed"
+  },
+  "comparison": "assessed",
+  "changes": [
+    "version",
+    "repositories"
+  ],
+  "summary": "Source-tag patch bump from v1.2.0 to v1.2.1 with corresponding recipe version update. No structural changes to parts, services, or packages. EOL extended from 2026-12-01 to 2027-04-16."
+}
