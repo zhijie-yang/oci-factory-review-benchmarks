@@ -44,7 +44,7 @@ def main():
     print('Agent      Aggregate  Verdict*  Findings  Gates  Summary  False blockers  Cost')
     for agent, s in result['agents'].items():
         d = s['dimensions']
-        print(f"{agent:10} {s['aggregate']:8.1%}  {s['verdict_matches']:2}/12     "
+        print(f"{agent:10} {s['aggregate']:8.1%}  {s['verdict_matches']:2}/{len(expected)}     "
               f"{d['findings']:7.1%}  {d['gates']:5.1%}  {d['summary']:7.1%}  "
               f"{len(s['false_blocked_cases']):14}  ${s['cost_usd']:.4f}")
     print('* Literal verdict accuracy, independently of schema failures; review the text to confirm correctness.')

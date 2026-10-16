@@ -44,14 +44,14 @@ class BenchmarkTests(unittest.TestCase):
                 self.assertEqual(score(cell['task'], run / cell['agent'] / cell['task'], cell['scorer']), cell['score'])
 
     def test_case_matrix(self):
-        self.assertEqual(set(CASES), {f'case-{n:02}' for n in range(1, 13)})
+        self.assertEqual(set(CASES), {f'case-{n:02}' for n in range(1, 17)})
         self.assertEqual(set(CASES), set(self.expected))
         for task, files in CASES.items():
             self.assertIn('2026-10-16', files['context.md'])
             self.assertIn('a/oci/demo/image.yaml', files['changes.diff'])
             self.assertIn('b/oci/demo/image.yaml', files['changes.diff'])
-            self.assertEqual('recipes/before/rockcraft.yaml' in files, task != 'case-12')
-            self.assertEqual('recipes/after/rockcraft.yaml' in files, task != 'case-12')
+            self.assertEqual('recipes/before/rockcraft.yaml' in files, task not in ('case-12', 'case-15'))
+            self.assertEqual('recipes/after/rockcraft.yaml' in files, task not in ('case-12', 'case-15'))
             for path in files:
                 self.assertFalse(Path(path).is_absolute())
                 self.assertNotIn('..', Path(path).parts)
@@ -72,6 +72,13 @@ class BenchmarkTests(unittest.TestCase):
             self.assertEqual(before(task).replace(removed, ''), after(task))
         self.assertEqual(before('case-08').replace('0750', '0700').replace('584792:584792', '0:0'), after('case-08'))
         self.assertEqual(before('case-11').replace('1.2.0', '1.2.1'), after('case-11'))
+        self.assertEqual(before('case-13'), before('case-06'))
+        self.assertEqual(after('case-13'), after('case-06'))
+        self.assertIn('later PR', CASES['case-13']['context.md'])
+        self.assertEqual(before('case-14').replace('0750', '0700'), after('case-14'))
+        self.assertIn('584792:584792', after('case-14'))
+        self.assertIn('provenance evidence', CASES['case-15']['context.md'])
+        self.assertEqual(before('case-16').replace('      - yq\n', ''), after('case-16'))
 
     def test_positive_answers(self):
         for task in CASES:

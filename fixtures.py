@@ -379,3 +379,67 @@ There is no request to extend the trigger's existing 2026-12-01 EOL.""",
         notes="The PR author requests the source commit update. Neither recipe was supplied.",
     ),
 }
+
+# Frozen before any model run: supplementary same-family cases, not blind holdouts.
+CASES.update({
+    "case-13": {
+        **_case(
+            13,
+            CASES["case-06"]["recipes/before/rockcraft.yaml"],
+            CASES["case-06"]["recipes/after/rockcraft.yaml"],
+            notes="""The PR author explicitly states: 'Removing tini is intentional. I will fix
+the service command in a later PR; please merge the package removal now.'
+The currently proposed enabled service command is unchanged; the promised
+follow-up is not part of this PR or either supplied snapshot.""",
+        ),
+        "evidence.md": CASES["case-06"]["evidence.md"],
+    },
+    "case-14": _case(
+        14,
+        CASES["case-08"]["recipes/before/rockcraft.yaml"],
+        CASES["case-08"]["recipes/before/rockcraft.yaml"].replace("0750", "0700"),
+        notes="The PR author describes the source update as adjusting configuration directory permissions.",
+        evidence="""
+            In the frozen Rockcraft user mapping, _daemon_ has UID and GID 584792.
+            The unchanged run-user selects that identity for the demo service,
+            including at startup. The runtime has no DAC override/search capability,
+            ACL grant, root helper or identity-changing step. Staging preserves the
+            override-build directory ownership and modes. No other part overwrites
+            /opt/demo. Before: /opt/demo is 584792:584792 mode 0750. After: it is
+            584792:584792 mode 0700. No other users or groups require access to this
+            directory or its contents for any supported runtime or integration path.
+            /opt and all ancestors are searchable; server.conf remains 0:0 mode
+            0644 with identical contents. The configured app must open this file
+            before listening, with no fallback. Its owner access is preserved.
+            No volume or later permission change modifies these paths.
+        """,
+    ),
+    "case-15": _case(
+        15, None, None,
+        notes="""The PR author requests only the source commit update. Neither recipe was
+supplied. There is explicitly no prior source review, cached recipe, package
+inventory or provenance evidence. Whether the image uses archive packages,
+third-party packages, slices or directly built application source is unknown;
+the trigger repository name provides no basis for inferring any of these.""",
+    ),
+    "case-16": _case(
+        16,
+        CASES["case-09"]["recipes/before/rockcraft.yaml"].replace("      - jq\n", "      - yq\n"),
+        CASES["case-09"]["recipes/after/rockcraft.yaml"],
+        notes="""The PR author calls yq an optional convenience tool and requests its removal.
+The supplied recipes show no explicit yq invocation, but there is no application
+source, runtime inventory, documented tool contract or integration coverage for
+optional YAML-processing paths. The author has not supplied usage analysis.
+Whether any supported path uses yq cannot be determined from this bundle.""",
+    ),
+})
+
+# Remove even the default package assumptions from the unavailable-source variant.
+_conventions = CASES["case-15"]["context.md"].split(
+    "## Package and source conventions\n", 1,
+)[1].split("## Supplied discussion", 1)[0]
+CASES["case-15"]["context.md"] = CASES["case-15"]["context.md"].replace(
+    _conventions,
+    "\nNo package or source conventions establish this image's contents. All package\n"
+    "provenance and main-application source usage are unknown in this bundle.\n\n",
+)

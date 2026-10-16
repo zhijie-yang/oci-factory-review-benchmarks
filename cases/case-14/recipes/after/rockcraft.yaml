@@ -1,0 +1,33 @@
+name: demo
+base: ubuntu@24.04
+build-base: ubuntu@24.04
+version: '1.2.0'
+summary: Demo application
+description: A synthetic application used in an offline review exercise.
+license: Apache-2.0
+platforms:
+  amd64:
+run-user: _daemon_
+services:
+  demo:
+    override: replace
+    command: /usr/bin/demo serve --config /opt/demo/server.conf
+    startup: enabled
+parts:
+  app:
+    plugin: nil
+    stage-packages:
+      - demo-app
+  deb-security-manifest:
+    plugin: make
+    source: https://github.com/canonical/rocks-security-manifest
+    source-type: git
+    source-branch: main
+    override-prime: gen_manifest
+  runtime-config:
+    plugin: nil
+    override-build: |
+      install -d -m 0700 "$CRAFT_PART_INSTALL/opt/demo"
+      printf '%s\n' 'listen=8080' > "$CRAFT_PART_INSTALL/opt/demo/server.conf"
+      chmod 0644 "$CRAFT_PART_INSTALL/opt/demo/server.conf"
+      chown 584792:584792 "$CRAFT_PART_INSTALL/opt/demo"

@@ -106,5 +106,41 @@
     "gates": {"eol-cap": "not-assessed", "deb-manifest": "not-assessed", "recipe-regression": "not-assessed", "vulnerability-scan": "not-assessed"},
     "changes": [],
     "comparison": "not-assessed"
+  },
+  "case-13": {
+    "title": "Case 13",
+    "rationale": "Supplementary same-family variant of case-06, frozen before model execution, not a blind holdout. Explicit author intent and a promised later service fix do not repair the current enabled command. The same synthetic complete-rootfs evidence establishes that removing tini leaves its first executable absent; the current startup regression remains blocking.",
+    "verdict": "Request changes",
+    "findings": [{"category": "recipe-regression", "severity": "blocker"}],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "fail", "vulnerability-scan": "not-assessed"},
+    "changes": ["packages"],
+    "comparison": "assessed"
+  },
+  "case-14": {
+    "title": "Case 14",
+    "rationale": "Supplementary same-family variant of case-08, frozen before model execution, not a blind holdout. Only the directory mode changes from 0750 to 0700; daemon ownership is preserved in both snapshots. Synthetic identity and access requirements establish that the daemon startup retains access to its config and no other supported user needs access. The script delta introduces no evidenced regression.",
+    "verdict": "Approve",
+    "findings": [],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "pass", "vulnerability-scan": "not-assessed"},
+    "changes": ["scripts"],
+    "comparison": "assessed"
+  },
+  "case-15": {
+    "title": "Case 15",
+    "rationale": "Supplementary same-family variant of case-12, frozen before model execution, not a blind holdout. Neither recipe nor any prior source review or provenance basis is available, and no default package assumptions apply. Approve only the locally checkable trigger scope while leaving comparison and every gate not assessed. Empty changes records the unassessed recipe delta, not identical recipes or established provenance. No build, runtime or scan success is claimed.",
+    "verdict": "Approve",
+    "findings": [],
+    "gates": {"eol-cap": "not-assessed", "deb-manifest": "not-assessed", "recipe-regression": "not-assessed", "vulnerability-scan": "not-assessed"},
+    "changes": [],
+    "comparison": "not-assessed"
+  },
+  "case-16": {
+    "title": "Case 16",
+    "rationale": "Supplementary same-family variant of case-09, frozen before model execution, not a blind holdout. The optional tool is yq and the unknown integration paths process YAML. Removing the package does not establish concrete harm or prove safety; request usage analysis or coverage as a recipe-regression nit, with regression safety not assessed.",
+    "verdict": "Comment",
+    "findings": [{"category": "recipe-regression", "severity": "nit"}],
+    "gates": {"eol-cap": "n/a", "deb-manifest": "pass", "recipe-regression": "not-assessed", "vulnerability-scan": "not-assessed"},
+    "changes": ["packages"],
+    "comparison": "assessed"
   }
 }
